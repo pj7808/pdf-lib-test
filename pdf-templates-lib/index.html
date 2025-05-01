@@ -5,7 +5,6 @@
     <title>PDF Test</title>
 
     <!-- Required scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
@@ -13,11 +12,14 @@
 
     <!-- pdf-lib  -->
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </head>
   <body>
     <button id="generateBtn">Generate Template 1</button>
     <button id="generateBtn2">Generate Template 2</button>
     <button id="generateBtn3">Generate Template 3</button>
+    <button id="generateBtn4">Generate Template 4</button>
 
     <script type="module">
       import { generatePdf } from "./index.js";
@@ -30,7 +32,7 @@
       //   }
       const data = [];
 
-      for (let i = 0; i < 500; i++) {
+      for (let i = 0; i < 3000; i++) {
         data.push({
           productNo: `PRD00${i + 1}`,
           item: "Gold Ring",
@@ -49,6 +51,9 @@
       document
         .getElementById("generateBtn3")
         .addEventListener("click", () => generatePdf(3, data));
+      document
+        .getElementById("generateBtn4")
+        .addEventListener("click", () => generatePdf(4, data));
     </script>
   </body>
 </html>
